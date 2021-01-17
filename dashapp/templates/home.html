@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block logins %}
+	<div style="margin-right: 20px;">User: {{ current_user.username }}</div>
+	<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+
+{% block content %}
+	<div style="flex-direction: column; display: flex;">
+		<h1 style="margin-left: 10px; margin-top: 10px; font-size: 22pt; font-weight: bold;">Demo</h1><br/>
+		<div class="app_btn">
+			<a href="{{ url_for('/demo_app/') }}">Demo app</a>
+		</div>
+	</div>
+{% endblock %}

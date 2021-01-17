@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form class="form-signin" action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+		<h2 class="form-signin-heading">Please login</h2>
+        <p class="form-control">
+            {{ form.username(size=32, class="form-control", placeholder="Username") }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p class="form-control">
+            {{ form.password(size=32, class="form-control", placeholder="Password") }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p style="display: inline-flex;">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p class="btn btn-lg btn-primary btn-block" style="display: flex; align-items: center; justify-content: center;">{{ form.submit() }}</p>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li style="color: red;">{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+    </form>
+{% endblock %}

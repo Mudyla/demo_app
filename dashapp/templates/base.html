@@ -1,0 +1,17 @@
+<html>
+     <head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='custom-css.css') }}">
+     </head>
+    <body class="xcontainer">
+        <div class="header">
+			<div class="logins">
+				{% block logins %}{% endblock %}
+			</div>
+        </div>
+        <div class="main">
+			{% block content %}{% endblock %}
+        </div>
+        <div class="footer">
+        </div>
+	</body>
+</html>
